@@ -73,3 +73,26 @@ const renderObjects = (objects) => {
 
   helper.$("#image-list").appendChild(imageList);
 };
+
+helper.$("#department-name").textContent = constants.departmentName;
+
+let sequence;
+objectIdsPromise
+  .then((data) => {
+    sequence = loadObjects(data.objectIDs);
+    return sequence.next().value;
+  })
+  .then(renderObjects)
+  .then(() => {
+    helper.$("#load-more-button").classList.remove("hidden");
+  })
+  .catch(console.error);
+
+helper.$("#load-more-button").addEventListener("click", () => {
+  sequence
+    .next()
+    .value.then(renderObjects)
+    .catch(() => {
+      helper.$("#load-more-button").classList.add("hidden");
+    });
+});

@@ -62,7 +62,9 @@ const renderObjects = (objects) => {
         "duration-300"
       );
       const a = document.createElement("a");
-      a.href = `./object.html?object-id=${object.objectID}`;
+      a.href = `./image.html?object-id=${object.objectID}`;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
       a.classList.add("aspect-square", "block", "overflow-hidden");
       if (Math.random() < 8 && i % 15 === 0) {
         a.classList.add("row-span-2");

@@ -21,3 +21,38 @@ const constants = helper.iife(() => {
   const departmentId = searchParams.get("department-id");
   return { departmentName, departmentId };
 });
+
+const renderObjects = (objects) => {
+  const imageList = objects
+    .map((object, i) => {
+      const img = document.createElement("img");
+      img.src = object.primaryImageSmall;
+      img.alt = object.title;
+      img.title = object.title;
+      img.classList.add(
+        "object-cover",
+        "w-full",
+        "h-full",
+        "hover:scale-105",
+        "duration-300"
+      );
+      const a = document.createElement("a");
+      a.href = `./object.html?object-id=${object.objectID}`;
+      a.classList.add("aspect-square", "block", "overflow-hidden");
+      if (Math.random() < 8 && i % 15 === 0) {
+        a.classList.add("row-span-2");
+        a.classList.add("col-span-2");
+      }
+      a.appendChild(img);
+      img.addEventListener("error", () => {
+        a.remove();
+      });
+      return a;
+    })
+    .reduce((acc, img) => {
+      acc.appendChild(img);
+      return acc;
+    }, document.createDocumentFragment());
+
+  helper.$("#image-list").appendChild(imageList);
+};

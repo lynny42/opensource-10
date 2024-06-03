@@ -39,6 +39,14 @@ function* loadObjects(objectIds) {
   return Promise.reject("끝");
 }
 
+const hideSkeleton = () => {
+  helper.$(".skeleton").classList.add("hidden");
+};
+const showSkeleton = () => {
+  helper.$(".skeleton").classList.add("mt-2");
+  helper.$(".skeleton").classList.remove("hidden");
+};
+
 const renderObjects = (objects) => {
   const imageList = objects
     .map((object, i) => {
@@ -71,6 +79,7 @@ const renderObjects = (objects) => {
       return acc;
     }, document.createDocumentFragment());
 
+  hideSkeleton();
   helper.$("#image-list").appendChild(imageList);
 };
 
@@ -89,6 +98,7 @@ objectIdsPromise
   .catch(console.error);
 
 helper.$("#load-more-button").addEventListener("click", () => {
+  showSkeleton();
   sequence
     .next()
     .value.then(renderObjects)

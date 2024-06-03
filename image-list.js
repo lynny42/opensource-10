@@ -22,6 +22,23 @@ const constants = helper.iife(() => {
   return { departmentName, departmentId };
 });
 
+const objectIdsPromise = helper.use(
+  helper.getObjectsIdsUrl(constants.departmentId)
+);
+
+function* loadObjects(objectIds) {
+  let flag = 0;
+  while (flag < objectIds.length) {
+    const objectPromises = objectIds
+      .slice(flag, flag + 50)
+      .map(helper.getObjectUrl)
+      .map(helper.use);
+    flag += 50;
+    yield Promise.all(objectPromises);
+  }
+  return Promise.reject("끝");
+}
+
 const renderObjects = (objects) => {
   const imageList = objects
     .map((object, i) => {

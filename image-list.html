@@ -1,8 +1,26 @@
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Image List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container mx-auto">
+      <h1 class="font-serif text-5xl font-bold p-5">
+        <span id="department-name"></span>
+      </h1>
+      <div class="mt-10"></div>
+      <ul
+        class="grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+        id="image-list"
+      ></ul>
+      <div id="load-more-button" class="hidden">
+        <div class="flex p-5 items-center justify-center">
+          <button type="button" class="border p-3">더보기</button>
+        </div>
+      </div>
+    </div>
+    <script src="./image-list.js"></script>
+  </body>
 </html>

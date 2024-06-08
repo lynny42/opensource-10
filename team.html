@@ -21,16 +21,19 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
+            background-color: #bbb; /* 더 짙은 회색 */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         .header h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
             color: #333;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .team {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             margin-bottom: 40px;
         }
         .member {
@@ -53,7 +56,7 @@
         }
         .profile {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 40px;
             padding: 20px;
@@ -62,15 +65,20 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .profile img {
-            max-width: 400px;
+            max-width: 300px;
             border-radius: 10px;
             margin-right: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .profile img:hover {
+            transform: scale(1.05);
         }
         .profile .description {
-            max-width: 500px;
+            max-width: 600px;
         }
         .profile .description h2 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin: 0;
             margin-bottom: 10px;
             color: #333;
@@ -96,45 +104,56 @@
             const profiles = {
                 dong: {
                     name: "이동현",
-                    nickname: "",
-                    description: "",
+                    major: "전공: 컴퓨터 공학",
+                    studentId: "학번: 2017101234",
+                    task: "업무: 백엔드 개발",
+                    github: "Github: github.com/dong",
                     image: "member1.jpg",
-                    career: []
+                    pageImage: "page1.jpg",
+                    pageLink: "https://example.com/page1"
                 },
                 kwon: {
                     name: "권영우",
-                    nickname: "",
-                    description: "",
+                    major: "전공: 소프트웨어 공학",
+                    studentId: "학번: 2017105678",
+                    task: "업무: 프론트엔드 개발",
+                    github: "Github: github.com/kwon",
                     image: "member2.jpg",
-                    career: []
+                    pageImage: "page2.jpg",
+                    pageLink: "https://example.com/page2"
                 },
                 jung: {
                     name: "정해린",
-                    nickname: "",
-                    description: "",
+                    major: "전공: 데이터 사이언스",
+                    studentId: "학번: 2017201234",
+                    task: "업무: 데이터 분석",
+                    github: "Github: github.com/jung",
                     image: "member3.jpg",
-                    career: []
+                    pageImage: "page3.jpg",
+                    pageLink: "https://example.com/page3"
                 },
                 sung: {
                     name: "정성윤",
-                    nickname: "",
-                    description: "",
+                    major: "전공: 인공지능",
+                    studentId: "학번: 2017205678",
+                    task: "업무: 머신러닝 엔지니어",
+                    github: "Github: github.com/sung",
                     image: "member4.jpg",
-                    career: []
+                    pageImage: "page4.jpg",
+                    pageLink: "https://example.com/page4"
                 }
             };
 
             document.getElementById('profile-img').src = profiles[member].image;
             document.getElementById('profile-name').innerText = profiles[member].name;
-            document.getElementById('profile-nickname').innerText = `별명: ${profiles[member].nickname}`;
-            document.getElementById('profile-description').innerText = profiles[member].description;
-            const careerList = document.getElementById('career-list');
-            careerList.innerHTML = '';
-            profiles[member].career.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                careerList.appendChild(li);
-            });
+            document.getElementById('profile-major').innerText = profiles[member].major;
+            document.getElementById('profile-studentId').innerText = profiles[member].studentId;
+            document.getElementById('profile-task').innerText = profiles[member].task;
+            document.getElementById('profile-github').innerText = profiles[member].github;
+
+            const pageImage = document.getElementById('page-image');
+            pageImage.src = profiles[member].pageImage;
+            pageImage.parentElement.href = profiles[member].pageLink;
         }
     </script>
 </head>
@@ -161,11 +180,14 @@
             <img id="profile-img" src="member1.jpg" alt="프로필 이미지">
             <div class="description">
                 <h2 id="profile-name">이동현</h2>
-                <p id="profile-nickname">별명: </p>
-                <p id="profile-description"></p>
+                <p id="profile-major">전공: 컴퓨터 공학</p>
+                <p id="profile-studentId">학번: 2017101234</p>
+                <p id="profile-task">업무: 백엔드 개발</p>
+                <p id="profile-github">Github: github.com/dong</p>
                 <div class="career">
-                    <p><span>주요경력</span></p>
-                    <ul id="career-list"></ul>
+                    <a href="" target="_blank">
+                        <img id="page-image" src="page1.jpg" alt="업무 이미지" style="width: 100%; border-radius: 10px;">
+                    </a>
                 </div>
             </div>
         </div>

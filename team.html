@@ -11,17 +11,22 @@
             font-family: 'Nanum Gothic', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f7f7f7;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
         }
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            background-color: #bbb; /* 더 짙은 회색 */
+            margin-bottom: 20px;
+            background-color: #bbb;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -30,6 +35,12 @@
             font-size: 2.5em;
             margin: 0;
             color: #333;
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            margin: 20px 0;
         }
         .team {
             display: flex;
@@ -98,6 +109,14 @@
         .profile .description .career ul {
             padding-left: 20px;
         }
+        .profile .description a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .profile .description a:hover {
+            color: #0056b3;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -116,10 +135,6 @@
         footer a:hover {
             color: #ddd;
         }
-        footer img {
-            width: 40px;
-            vertical-align: middle;
-        }
     </style>
     <script>
         function showProfile(member) {
@@ -129,7 +144,7 @@
                     major: "전공: 컴퓨터 공학",
                     studentId: "학번: 2017101234",
                     task: "업무: Image_Page",
-                    github: "Github: github.com/dong",
+                    github: "github.com/dong",
                     image: "member1.jpg",
                     pageImage: "page1.jpg",
                     pageLink: "https://example.com/page1"
@@ -139,7 +154,7 @@
                     major: "전공: 소프트웨어 공학",
                     studentId: "학번: 2017105678",
                     task: "업무: Main_Page",
-                    github: "Github: github.com/kwon",
+                    github: "github.com/kwon",
                     image: "member2.jpg",
                     pageImage: "page2.jpg",
                     pageLink: "https://example.com/page2"
@@ -149,7 +164,7 @@
                     major: "전공: 데이터 사이언스",
                     studentId: "학번: 2017201234",
                     task: "업무: Information_Page",
-                    github: "Github: github.com/jung",
+                    github: "github.com/jung",
                     image: "member3.jpg",
                     pageImage: "page3.jpg",
                     pageLink: "https://example.com/page3"
@@ -159,7 +174,7 @@
                     major: "전공: 데이터사이언스학과",
                     studentId: "학번: 18011732",
                     task: "업무: Information_Page",
-                    github: "Github: https://github.com/sung3504",
+                    github: "https://github.com/sung3504",
                     image: "member4.jpg",
                     pageImage: "page4.jpg",
                     pageLink: "https://example.com/page4"
@@ -171,7 +186,7 @@
             document.getElementById('profile-major').innerText = profiles[member].major;
             document.getElementById('profile-studentId').innerText = profiles[member].studentId;
             document.getElementById('profile-task').innerText = profiles[member].task;
-            document.getElementById('profile-github').innerText = profiles[member].github;
+            document.getElementById('profile-github').innerHTML = `<a href="https://${profiles[member].github}" target="_blank">${profiles[member].github}</a>`;
 
             const pageImage = document.getElementById('page-image');
             pageImage.src = profiles[member].pageImage;
@@ -184,6 +199,7 @@
         <div class="header">
             <h1>Team Member </h1>
         </div>
+        <div class="divider"></div>
         <div class="team">
             <div class="member" onclick="showProfile('dong')">
                 <p>이동현</p>
@@ -205,9 +221,9 @@
                 <p id="profile-major">전공: 컴퓨터 공학</p>
                 <p id="profile-studentId">학번: 2017101234</p>
                 <p id="profile-task">업무: Main_page</p>
-                <p id="profile-github">Github: github.com/dong</p>
+                <p id="profile-github">Github: <a href="https://github.com/dong" target="_blank">github.com/dong</a></p>
                 <div class="career">
-                    <a href="" target="_blank">
+                    <a href="https://example.com/page1" target="_blank">
                         <img id="page-image" src="page1.jpg" alt="업무 이미지" style="width: 100%; border-radius: 10px;">
                     </a>
                 </div>
@@ -215,15 +231,9 @@
         </div>
     </div>
     <footer>
-        <a href="https://example.com/home">
-            <img src="home-logo.png" alt="Home"> HOME
-        </a>
-        <a href="https://example.com/api">
-            <img src="api-logo.png" alt="API">
-        </a>
-        <a href="https://github.com/team">
-            <img src="github-logo.png" alt="Team Github"> Team Github
-        </a>
+        <a href="https://example.com/home">HOME</a>
+        <a href="https://example.com/api">API</a>
+        <a href="https://github.com/team">Team Github</a>
     </footer>
 </body>
 </html>

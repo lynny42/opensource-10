@@ -3,98 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>팀원 정보</title>
+    <title>팀원 소개</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: url('museum.jpg') no-repeat center center fixed;
-            background-size: cover;
+            padding: 20px;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-        header {
-            background: rgba(51, 51, 51, 0.9);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
+        .header {
             text-align: center;
+            margin-bottom: 40px;
         }
-        header h1 {
+        .header h1 {
+            font-size: 2em;
             margin: 0;
         }
         .team {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
         }
         .member {
-            background: #fff;
-            margin: 10px;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            border-radius: 10px;
         }
         .member img {
-            border-radius: 10px;
-            width: 100%;
-            height: auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
-            margin-top: 15px;
-        }
-        .member h2 {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #333;
+            cursor: pointer;
         }
         .member p {
-            color: #777;
-            font-size: 16px;
+            margin-top: 10px;
+            font-size: 1em;
+            color: #333;
         }
-        @media (max-width: 768px) {
-            .team {
-                grid-template-columns: 1fr;
-            }
+        .profile {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .profile img {
+            max-width: 400px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .profile .description {
+            max-width: 500px;
+        }
+        .profile .description h2 {
+            font-size: 2em;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .profile .description p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.5;
+        }
+        .profile .description p span {
+            color: #333;
+            font-weight: bold;
+        }
+        .profile .description .career {
+            margin-top: 20px;
         }
     </style>
+    <script>
+        function showProfile(member) {
+            const profiles = {
+                dong: {
+                    name: "이동현",
+                    nickname: "",
+                    description: "",
+                    image: "member1.jpg",
+                    career: []
+                },
+                kwon: {
+                    name: "권영우",
+                    nickname: "",
+                    description: "",
+                    image: "member2.jpg",
+                    career: []
+                },
+                jung: {
+                    name: "정해린",
+                    nickname: "",
+                    description: "",
+                    image: "member3.jpg",
+                    career: []
+                },
+                sung: {
+                    name: "정성윤",
+                    nickname: "",
+                    description: "",
+                    image: "member4.jpg",
+                    career: []
+                }
+            };
+
+            document.getElementById('profile-img').src = profiles[member].image;
+            document.getElementById('profile-name').innerText = profiles[member].name;
+            document.getElementById('profile-nickname').innerText = `별명: ${profiles[member].nickname}`;
+            document.getElementById('profile-description').innerText = profiles[member].description;
+            const careerList = document.getElementById('career-list');
+            careerList.innerHTML = '';
+            profiles[member].career.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                careerList.appendChild(li);
+            });
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <h1>Team Member</h1>
-    </header>
+<body onload="showProfile('dong')">
     <div class="container">
-        <section class="team">
-            <div class="member">
-                <h2>권영우</h2>
-                <p>Main Page</p>
-                <img src="main_page.png" alt="Main Page Image">
+        <div class="header">
+            <h1>멤버 소개</h1>
+        </div>
+        <div class="team">
+            <div class="member" onclick="showProfile('dong')">
+                <img src="member1.jpg" alt="이동현">
+                <p>이동현</p>
             </div>
-            <div class="member">
-                <h2>이동현</h2>
-                <p>Image Page</p>
-                <img src="image_page.png" alt="Image Page Image">
+            <div class="member" onclick="showProfile('kwon')">
+                <img src="member2.jpg" alt="권영우">
+                <p>권영우</p>
             </div>
-            <div class="member">
-                <h2>정해린</h2>
-                <p>Information Page</p>
-                <img src="information_page.jpg" alt="Information Page Image">
+            <div class="member" onclick="showProfile('jung')">
+                <img src="member3.jpg" alt="정해린">
+                <p>정해린</p>
             </div>
-            <div class="member">
-                <h2>정성윤</h2>
-                <p>Member Page</p>
-                <img src="member_page.jpg" alt="Member Page Image">
+            <div class="member" onclick="showProfile('sung')">
+                <img src="member4.jpg" alt="정성윤">
+                <p>정성윤</p>
             </div>
-        </section>
+        </div>
+        <div id="profile" class="profile">
+            <img id="profile-img" src="member1.jpg" alt="프로필 이미지">
+            <div class="description">
+                <h2 id="profile-name">이동현</h2>
+                <p id="profile-nickname">별명: </p>
+                <p id="profile-description"></p>
+                <div class="career">
+                    <p><span>주요경력</span></p>
+                    <ul id="career-list"></ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

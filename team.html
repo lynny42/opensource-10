@@ -12,3 +12,58 @@
             background: url('museum.jpg') no-repeat center center fixed;
             background-size: cover;
         }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        header {
+            background: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .team {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .member {
+            background: #fff;
+            margin: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+        .member img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-top: 15px;
+        }
+        .member h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .member p {
+            color: #777;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .team {
+                grid-template-columns: 1fr;
+            }
+        }
+    

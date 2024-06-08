@@ -56,8 +56,8 @@
         }
         .profile {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            justify-content: flex-start;
+            align-items: center;
             margin-bottom: 40px;
             padding: 20px;
             background: #fff;
@@ -97,6 +97,28 @@
         }
         .profile .description .career ul {
             padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        footer a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #ddd;
+        }
+        footer img {
+            width: 40px;
+            vertical-align: middle;
         }
     </style>
     <script>
@@ -160,7 +182,7 @@
 <body onload="showProfile('dong')">
     <div class="container">
         <div class="header">
-            <h1>멤버 소개</h1>
+            <h1>Team Member </h1>
         </div>
         <div class="team">
             <div class="member" onclick="showProfile('dong')">
@@ -182,7 +204,7 @@
                 <h2 id="profile-name">이동현</h2>
                 <p id="profile-major">전공: 컴퓨터 공학</p>
                 <p id="profile-studentId">학번: 2017101234</p>
-                <p id="profile-task">업무: 백엔드 개발</p>
+                <p id="profile-task">업무: Main_page</p>
                 <p id="profile-github">Github: github.com/dong</p>
                 <div class="career">
                     <a href="" target="_blank">
@@ -192,5 +214,16 @@
             </div>
         </div>
     </div>
+    <footer>
+        <a href="https://example.com/home">
+            <img src="home-logo.png" alt="Home"> HOME
+        </a>
+        <a href="https://example.com/api">
+            <img src="api-logo.png" alt="API"> API
+        </a>
+        <a href="https://github.com/team">
+            <img src="github-logo.png" alt="Team Github"> Team Github
+        </a>
+    </footer>
 </body>
 </html>

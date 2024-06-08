@@ -28,7 +28,7 @@ fetch(apiURL)
         document.getElementById('artwork-material').textContent = material;
         document.getElementById('artwork-dimensions').textContent = dimensions;
         document.getElementById('artwork-department').textContent = department;
-        
+        document.getElementById('artwork-objectURL').innerHTML = `<a href="${objectURL}" target="_blank" style= "color: #00000; ">more information</a>`;
     })
     .catch(error => {
         console.error('Error fetching artwork details:', error);

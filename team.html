@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팀원 소개</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Nanum Gothic', sans-serif;
             margin: 0;
             padding: 20px;
+            background-color: #f7f7f7;
         }
         .container {
             width: 80%;
@@ -20,8 +23,10 @@
             margin-bottom: 40px;
         }
         .header h1 {
-            font-size: 2em;
+            font-size: 3em;
             margin: 0;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .team {
             display: flex;
@@ -30,17 +35,20 @@
         }
         .member {
             text-align: center;
-        }
-        .member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
         .member p {
             margin-top: 10px;
-            font-size: 1em;
+            font-size: 1.2em;
             color: #333;
         }
         .profile {
@@ -48,6 +56,10 @@
             justify-content: center;
             align-items: flex-start;
             margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .profile img {
             max-width: 400px;
@@ -58,12 +70,13 @@
             max-width: 500px;
         }
         .profile .description h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin: 0;
             margin-bottom: 10px;
+            color: #333;
         }
         .profile .description p {
-            font-size: 1em;
+            font-size: 1.2em;
             color: #555;
             line-height: 1.5;
         }
@@ -73,6 +86,9 @@
         }
         .profile .description .career {
             margin-top: 20px;
+        }
+        .profile .description .career ul {
+            padding-left: 20px;
         }
     </style>
     <script>
@@ -129,19 +145,15 @@
         </div>
         <div class="team">
             <div class="member" onclick="showProfile('dong')">
-                <img src="member1.jpg" alt="이동현">
                 <p>이동현</p>
             </div>
             <div class="member" onclick="showProfile('kwon')">
-                <img src="member2.jpg" alt="권영우">
                 <p>권영우</p>
             </div>
             <div class="member" onclick="showProfile('jung')">
-                <img src="member3.jpg" alt="정해린">
                 <p>정해린</p>
             </div>
             <div class="member" onclick="showProfile('sung')">
-                <img src="member4.jpg" alt="정성윤">
                 <p>정성윤</p>
             </div>
         </div>

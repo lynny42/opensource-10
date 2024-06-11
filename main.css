@@ -1,5 +1,4 @@
 body {
-    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -8,6 +7,9 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: "Playfair Display", serif; /* 모든 요소에 Playfair Display 폰트 적용 */
+    font-optical-sizing: auto;
+    font-weight: 500; /* 기본 폰트 두께 설정 */
 }
 
 h1 {
@@ -17,14 +19,7 @@ h1 {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 10px;
-}
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 10px;
+    font-weight: 900;
 }
 
 ul {
@@ -48,4 +43,18 @@ li {
 
 li:hover {
     background-color: #e0e0e0;
+}
+/* Playfair Display 폰트 설정 */
+.playfair-display-header {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 700; /* 원하는 가중치로 설정 */
+    font-style: normal;
+}
+
+.playfair-display-subheader {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500; /* 원하는 가중치로 설정 */
+    font-style: normal;
 }

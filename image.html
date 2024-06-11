@@ -1,0 +1,74 @@
+<html lang ="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+   
+    <body>
+        <style>
+            .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            
+            .artwork-info {
+                display: flex;
+                align-items: center;
+            }
+
+            .artwork-name {
+                width: 140px; 
+            }
+            .image-button {
+            border: none;
+            cursor: pointer;
+            width : 40px;
+            height : 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            }
+        
+        </style>
+
+        <h1 id="artwork-info"></h1>
+        <hr>
+            <div class="image-container">
+                <div id="artwork-details">
+                <img id="artwork-image" src="" alt="Artwork Image">
+               </div>
+            </div>
+        <hr>
+        <div class="artwork-info">
+            <h3 class="artwork-name">title</h3>
+            <p id="artwork-title"></p>
+        </div>
+    
+        <div class="artwork-info">
+            <h3 class="artwork-name">artist</h3>
+            <p id="artwork-artist"></p>
+        </div>
+        <div class="artwork-info">
+            <h3 class="artwork-name">department</h3>
+            <p id="artwork-department"></p>
+        </div>
+        <div class="artwork-info">
+            <h3 class="artwork-name">material</h3>
+            <p id="artwork-material"></p>
+        </div>
+        <div class="artwork-info">
+            <h3 class="artwork-name">dimensions</h3>
+            <p id="artwork-dimensions"></p>
+        </div>
+        <div> <h3 id="artwork-objectURL"></h3> </div>
+        <a href="./main.html">
+            <img src="https://icon-library.com/images/home-png-icon/home-png-icon-11.jpg" alt="Button Image" class="image-button" title="main page">
+        </a>
+    </div>
+    
+    <script src="image.js" defer></script>
+    </body>
+    </html>

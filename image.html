@@ -23,13 +23,31 @@
                 width: 140px; 
             }
             .image-button {
-            border: none;
-            cursor: pointer;
-            width : 40px;
-            height : 40px;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+                border: none;
+                cursor: pointer;
+                width : 40px;
+                height : 40px;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+            }
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #333;
+                color: #fff;
+                margin-top: 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            footer a {
+                color: #fff;
+                margin: 0 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            footer a:hover {
+                color: #ddd;
             }
         
         </style>
@@ -64,10 +82,15 @@
             <p id="artwork-dimensions"></p>
         </div>
         <div> <h3 id="artwork-objectURL"></h3> </div>
-        <a href="./main.html">
+        <a href="https://lee-donghyun.github.io/opensource-10/main.html">
             <img src="https://icon-library.com/images/home-png-icon/home-png-icon-11.jpg" alt="Button Image" class="image-button" title="main page">
         </a>
-    </div>
+        <footer>
+            <a href="https://lee-donghyun.github.io/opensource-10/main.html">HOME</a>
+            <a href="https://metmuseum.github.io/">API</a>
+            <a href="https://github.com/lee-donghyun/opensource-10">Team Github</a>
+            <a href="https://lee-donghyun.github.io/opensource-10/team.html">Member Info</a>
+        </footer>
     
     <script src="image.js" defer></script>
     </body>
